@@ -1,13 +1,22 @@
-# You can change this base image to anything else
-# But make sure to use the correct version of Java
-FROM adoptopenjdk/openjdk11:alpine-jre
+# Use Fedora as the base image
+FROM fedora:40
 
-# Simply the artifact path
-ARG artifact=target/spring-boot-web.jar
+# Install necessary packages including Maven and Docker
+RUN dnf -y update && \
+    dnf -y install maven docker && \
+    dnf clean all
 
-WORKDIR /opt/app
+# Create a Jenkins user and switch to it
+RUN useradd -m jenkins && \
+    usermod -aG docker jenkins
 
-COPY ${artifact} app.jar
+USER jenkins
 
-# This should not be changed
-ENTRYPOINT ["java","-jar","app.jar"]
+# Set the working directory
+WORKDIR /home/jenkins
+
+# Expose ports if needed (optional)
+# EXPOSE 8080
+
+# Set the entry point
+ENTRYPOINT ["/usr/bin/mvn"]
