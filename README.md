@@ -57,14 +57,14 @@ Promote: Promote the application to a production environment using Argo CD.
 
 4. Configure Jenkins Pipeline Stages
 
-Stage 1: Use the Git plugin to check out the source code from the Git repository.
-Stage 2: Use the Maven Integration plugin to build the Java application.
-Stage 3: Use JUnit and Mockito to run unit tests.
-Stage 4: Use the SonarQube plugin for code quality analysis.
-Stage 5: Package the application using Maven.
-Stage 6: Deploy using the Kubernetes Continuous Deploy plugin with Helm.
-Stage 7: Use a testing framework like Selenium for user acceptance tests.
-Stage 8: Use Argo CD for production deployment.
+    Stage 1: Use the Git plugin to check out the source code from the Git repository.
+    Stage 2: Use the Maven Integration plugin to build the Java application.
+    Stage 3: Use JUnit and Mockito to run unit tests.
+    Stage 4: Use the SonarQube plugin for code quality analysis.
+    Stage 5: Package the application using Maven.
+    Stage 6: Deploy using the Kubernetes Continuous Deploy plugin with Helm.
+    Stage 7: Use a testing framework like Selenium for user acceptance tests.
+    Stage 8: Use Argo CD for production deployment.
 
 Setting Up Argo CD
 
