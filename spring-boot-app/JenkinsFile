@@ -43,14 +43,14 @@ pipeline {
         stage('Update Deployment File') {
             environment {
                 GIT_REPO_NAME = "jenkin_ci-cd-kubernetes_project"
-                GIT_USER_NAME = "saxenarajatbhu"
+                GIT_USER_NAME = "Rajatsaxenabhu"
             }
             steps {
                 withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                     // Update the deployment file with the new image tag and push changes to GitHub
                     sh '''
                         git config user.email "saxenarajat.xyz@gmail.com"
-                        git config user.name "Rajat Saxena"
+                        git config user.name "Rajat_Saxena"
                         BUILD_NUMBER=${BUILD_NUMBER}
                         sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" spring-boot-app-manifests/deployment.yml
                         git add spring-boot-app-manifests/deployment.yml
